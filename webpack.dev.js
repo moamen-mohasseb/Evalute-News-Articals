@@ -44,8 +44,8 @@ module.exports = {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        }),
-        new WorkboxWebpackPlugin()
+        })
+        //new WorkboxWebpackPlugin()
 
         // TODO: configure workbox-webpack-plugin
     ]

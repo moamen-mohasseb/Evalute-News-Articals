@@ -1,13 +1,16 @@
 // TODO: Configure the environment variables
-
+const dotenv = require('dotenv');
+dotenv.config();
 const mockAPIResponse = require('./mockAPI.js')
-
+const express = require ('express')
+const cors = require ('cors')
+const app = express()
 const PORT = 8081
-
+app.use(express.static('dist'))
+const bodyParser = require('body-parser')
+app.use(cors())
+const server = app.listen(PORT,()=>console.log(`server runing on localhost:${PORT}`));
 // TODO add Configuration to be able to use env variables
-
-'
-
 // TODO: Create an instance for the server
 // TODO: Configure cors to avoid cors-origin issue
 // TODO: Configure express to use body-parser as middle-ware.
@@ -16,6 +19,7 @@ const PORT = 8081
 app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
+    
 })
 // a route that handling post request for new URL that coming from the frontend
 /* TODO:
