@@ -5,14 +5,11 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('article-url').value
        alert("Hiiiiiiiiiii")
-       try{checkURL(formText) }
-       catch (error) {
-        console.log("error", error);
-    }
-
+     
+alert("here"+checkURL(formText))
     if(checkURL(formText))
     {
-     console.log("::: Form Submitted :::")
+     alert("::: Form Submitted :::")
      let reqBody = {
         theText: formText
     };
@@ -33,13 +30,12 @@ function handleSubmit(event) {
 }
 function checkURL(myURL) {
     alert("in check url")
- var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
- '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
- '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip (v4) address
- '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ //port
- '(\\?[;&amp;a-z\\d%_.~+=-]*)?'+ // query string
- '(\\#[-a-z\\d_]*)?$','i');
- alert(pattern.test(myURL))
- return pattern.test(myURL);
+    let pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+    if (pattern.test(myURL)) {
+        return true;
+    } else {
+        return false;
+    }
+    alert(pattern.test(myURL))
 }
 export { handleSubmit }
