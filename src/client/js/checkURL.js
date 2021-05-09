@@ -8,8 +8,9 @@
     5. https://stackoverflow.com/a/5717133/6483379
     6. https://www.npmjs.com/package/valid-url
  */
-    var myURL;
-    function validURL(myURL) {
+
+    function checkURL(myURL) {
+          alert("in check url")
        var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // ip (v4) address

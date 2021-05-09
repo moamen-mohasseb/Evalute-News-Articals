@@ -1,6 +1,6 @@
 
 // TODO include your scss file here
-import { checkURL } from './js/checkURL.js'
+import { checkURL } from './js/checkURL'
 import { handleSubmit } from './js/formHandler'
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -10,6 +10,7 @@ import './styles/header.scss'
 // TODO: get the button for submit
 const buttonSub = document.getElementById("submitBtn")
 buttonSub.addEventListener('click',()=>{
+    console.log("clicked")
   handleSubmit()  
 })
 export {
