@@ -1,24 +1,26 @@
 // TODO: Configure the environment variables
-const dotenv = require('dotenv');
-dotenv.config();
 const mockAPIResponse = require('./mockAPI.js')
 const express = require ('express')
 const cors = require ('cors')
 const app = express()
-const PORT = 8081
+const PORT = 3000
 app.use(express.static('dist'))
 const bodyParser = require('body-parser')
 app.use(cors())
-const server = app.listen(PORT,()=>console.log(`server runing on localhost:${PORT}`));
+const server = app.listen(PORT,()=>console.log(`server OK runing on localhost:${PORT}`))
+const dotenv = require('dotenv');
+dotenv.config();
+app.use(bodyParser.json());
 // TODO add Configuration to be able to use env variables
 // TODO: Create an instance for the server
 // TODO: Configure cors to avoid cors-origin issue
 // TODO: Configure express to use body-parser as middle-ware.
 // TODO: Configure express static directory.
 
-app.get('/', function (req, res) {
+app.get('/add', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
+    console.log(req.body)
     
 })
 // a route that handling post request for new URL that coming from the frontend
@@ -42,7 +44,7 @@ app.get('/', function (req, res) {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
-
+/*
 // designates what port the app will listen to for incoming requests
 app.listen(PORT, (error) => {
     if (error) throw new Error(error)
@@ -50,3 +52,4 @@ app.listen(PORT, (error) => {
 })
 
 // TODO: export app to use it in the unit testing
+*/

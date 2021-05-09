@@ -1,6 +1,6 @@
 
 // TODO include your scss file here
-import { checkForName } from './js/nameChecker'
+import { checkURL } from './js/checkURL.js'
 import { handleSubmit } from './js/formHandler'
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -8,12 +8,12 @@ import './styles/form.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
 // TODO: get the button for submit
-const button = document.getElementById("submit")
-button.addEventListener('click',()=>{
-    
+const buttonSub = document.getElementById("submitBtn")
+buttonSub.addEventListener('click',()=>{
+  handleSubmit()  
 })
 export {
-    checkForName,
+    checkURL,
     handleSubmit
 }
 // TODO: add event listener to it when the click to call handleSubmit function

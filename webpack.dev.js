@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const loader = require('sass-loader')
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+//const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
     entry: './src/client/index.js',
