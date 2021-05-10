@@ -1,41 +1,44 @@
-//const { checkURL} =require('./checkURL')
+const { checkURL} =require('./checkURL')
 function handleSubmit(event) {
     //event.preventDefault()
 
     // check what text was put into the form field
     let formText = document.getElementById('article-url').value
-       alert("Hiiiiiiiiiii")
+  //     alert("Hiiiiiiiiiii")
      
-alert("here"+checkURL(formText))
+///alert("here"+checkURL(formText))
     if(checkURL(formText))
     {
-     alert("::: Form Submitted :::")
-     let reqBody = {
-        theText: formText
-    };
-    fetch('/add',{
-        method: 'POST',
-        body: JSON.stringify(reqBody),
-        headers: {"Content-Type": "application/json"}
-    })
+   //  alert("::: Form Submitted :::")
+  
+     postData('http://localhost:3000/add', formText)
     .then(res => {
-        return res.json()
-    })
-    .then(function(data) {
-        document.getElementById('text').innerHTML = data.message
+            alert('client side response', res);
+            //document.getElementById('text').innerHTML = res
     })
     }
     else
     {alert("enter Valid URL")}
 }
-function checkURL(myURL) {
-    alert("in check url")
-    let pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-    if (pattern.test(myURL)) {
-        return true;
-    } else {
-        return false;
-    }
-    alert(pattern.test(myURL))
+const postData = async(url ="",data={}) => {
+    
+    const response = await fetch(url, {
+            method: 'POST',
+            mode: 'cors',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url : data})
+        });
+        try {
+            alert("Back to client")
+            const newData = await response.json();
+            console.log(newData);
+            return newData;
+        } catch (error) {
+            console.log("error", error);
+        }
 }
+
 export { handleSubmit }

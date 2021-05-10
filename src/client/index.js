@@ -8,11 +8,12 @@ import './styles/form.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
 // TODO: get the button for submit
+window.addEventListener('DOMContentLoaded',()=>{
 const buttonSub = document.getElementById("submitBtn")
 buttonSub.addEventListener('click',()=>{
     console.log("clicked")
   handleSubmit()  
-})
+})});
 export {
     checkURL,
     handleSubmit

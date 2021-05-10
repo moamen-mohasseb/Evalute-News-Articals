@@ -10,8 +10,13 @@
  */
 
     function checkURL(myURL) {
-          alert("in check url")
-       var pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-       alert(pattern.test(myURL))
-       return pattern.test(myURL);
-    }
+      // alert("in check url")
+       let pattern = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+       if (pattern.test(myURL)) {
+           return true;
+       } else {
+           return false;
+       }
+       //alert(pattern.test(myURL))
+   }
+  export{checkURL}
