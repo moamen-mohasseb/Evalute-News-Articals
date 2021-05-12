@@ -1,18 +1,17 @@
-// TODO: import the url check function
 import {checkURL} from '../../client/js/checkURL'
-describe('Test check url functionality', () => {
-    test('Testing the checkUrl function defined or not', () => {
-        // TODO: write your logic here
+describe('Test check url all functions', () => {
+    test('Testing the checkURL defined or not', () => {
+
         expect(checkURL).toBeDefined();
     })
 
-    test('Testing the checkUrl function return false for invalid url', () => {
-        // TODO: write your logic here
-        expect(checkURL('https://www.legionisci.com/')).toBeTruthy();
+    test('Testing the checkURL function return true for well organized Url', () => {
+        
+        expect(checkURL('https://www.washingtonpost.com/politics/elise-stefanik-trump-cheney/2021/05/11/0dfb0d0c-b194-11eb-a3b5-f994536fe84a_story.html')).toBeTruthy();
     })
 
-    test('Testing the checkUrl function return true for valid url', () => {
-        // TODO: write your logic here
-        expect(checkURL('invalid_url')).toBeFalsy();
+    test('Testing the checkUrl function return false for invalid url', () => {
+        
+        expect(checkURL('Not url')).toBeFalsy();
     })
 })
