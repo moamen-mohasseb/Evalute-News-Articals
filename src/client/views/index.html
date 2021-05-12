@@ -25,23 +25,23 @@
 
         <section>
           <strong>Form Results:</strong>
-          <div id="text"></div>
-          <div id="agreement"></div>
-          <div id="subjectivity"></div>
-          <div id="confidence"></div>
-          <div id="irony"></div>
-          <div id="score_tag"></div>
+          <div id="Text"></div>
+          <div id="Agreement"></div>
+          <div id="Subjectivity"></div>
+          <div id="Confidence"></div>
+          <div id="Irony"></div>
+          <div id="Score_tag"></div>
         </section>
       </div>
     </main>
     <script>
-      // Check that service workers are supported
-     // if ('serviceWorker' in navigator) {
+     //  Check that service workers are supported
+      if ('serviceWorker' in navigator) {
         // Use the window load event to keep the page load performant
-       // window.addEventListener('load', () => {
-         // navigator.serviceWorker.register('/service-worker.js')
-       // })
-      //}
+        window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+        })
+      }
     </script>
   </body>
 </html>

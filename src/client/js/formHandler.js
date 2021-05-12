@@ -1,21 +1,22 @@
 const { checkURL} =require('./checkURL')
 function handleSubmit(event) {
-    //event.preventDefault()
-
-    // check what text was put into the form field
-    let formText = document.getElementById('article-url').value
-    //
-    if(checkURL(formText))
+    event.preventDefault()
+    let formUrlText = document.getElementById('article-url').value
+     if(checkURL(formUrlText))
     {
-   //  alert("::: Form Submitted :::")
-       postData('http://localhost:3000/add', formText)
+         postData('http://localhost:3000/geturl', formUrlText)
     .then(res => {
-            alert('client side response', res);
-           // document.getElementById('text').innerHTML = res
+            console.log('client side response', res);
+            document.getElementById('Text').innerHTML =`Text : ${res.text}`
+            document.getElementById('Agreement').innerHTML = `Agreement : ${res.agreement}`
+            document.getElementById('Subjectivity').innerHTML = `Subjectivity : ${res.subjectivity}`
+            document.getElementById('Confidence').innerHTML = `Confidence : ${res.confidence}`
+            document.getElementById('Irony').innerHTML = `Irony : ${res.irony}`
+            document.getElementById('Score_tag').innerHTML = `Score_tag : ${res.score_tag}`
     })
     }
     else
-    {alert("enter Valid URL")}
+    {alert("Enter valid URL")}
 }
 const postData = async(url ="",data={}) => {
     
@@ -29,7 +30,6 @@ const postData = async(url ="",data={}) => {
             body: JSON.stringify({ url : data})
         });
         try {
-            alert("Back to client")
             const newData = await response.json();
             console.log(newData);
             return newData;
