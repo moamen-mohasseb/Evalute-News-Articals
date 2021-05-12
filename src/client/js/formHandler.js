@@ -6,13 +6,8 @@ function handleSubmit(event) {
     {
          postData('http://localhost:3000/geturl', formUrlText)
     .then(res => {
-            console.log('client side response', res);
-            document.getElementById('Text').innerHTML =`Text : ${res.text}`
-            document.getElementById('Agreement').innerHTML = `Agreement : ${res.agreement}`
-            document.getElementById('Subjectivity').innerHTML = `Subjectivity : ${res.subjectivity}`
-            document.getElementById('Confidence').innerHTML = `Confidence : ${res.confidence}`
-            document.getElementById('Irony').innerHTML = `Irony : ${res.irony}`
-            document.getElementById('Score_tag').innerHTML = `Score_tag : ${res.score_tag}`
+        console.log(res)
+        updateUI(res)
     })
     }
     else
@@ -30,12 +25,19 @@ const postData = async(url ="",data={}) => {
             body: JSON.stringify({ url : data})
         });
         try {
-            const newData = await response.json();
-            console.log(newData);
-            return newData;
+            return await response.json();
         } catch (error) {
             console.log("error", error);
         }
 }
-
+function updateUI(res)
+{
+    document.getElementById('Model').innerHTML =`Model : ${res.model}`
+    document.getElementById('Text').innerHTML =`Text : ${res.sentence_list[0].text}`
+    document.getElementById('Agreement').innerHTML = `Agreement : ${res.agreement}`
+    document.getElementById('Subjectivity').innerHTML = `Subjectivity : ${res.subjectivity}`
+    document.getElementById('Confidence').innerHTML = `Confidence : ${res.confidence}`
+    document.getElementById('Irony').innerHTML = `Irony : ${res.irony}`
+    document.getElementById('Score_tag').innerHTML = `Score_tag : ${res.score_tag}`
+}
 export { handleSubmit }
