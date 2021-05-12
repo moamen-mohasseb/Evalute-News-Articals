@@ -4,17 +4,14 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('article-url').value
-  //     alert("Hiiiiiiiiiii")
-     
-///alert("here"+checkURL(formText))
+    //
     if(checkURL(formText))
     {
    //  alert("::: Form Submitted :::")
-  
-     postData('http://localhost:3000/add', formText)
+       postData('http://localhost:3000/add', formText)
     .then(res => {
             alert('client side response', res);
-            //document.getElementById('text').innerHTML = res
+           // document.getElementById('text').innerHTML = res
     })
     }
     else
