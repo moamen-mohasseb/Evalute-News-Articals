@@ -4,15 +4,18 @@
     <meta charset="utf-8" />
     <title>Sentiment Analyzer</title>
   </head>
-
+</html>
+<header><p> Discover Sentimen</p></header>
   <body>
     <main>
       <div class="container">
-        <p>Enter a URL of an article / a blog to discover its sentiment.</p>
+        
         <section>
           <form id="form">
-            <label for="article-url">URL</label>
+            <label for="article-url">Enter a URL of an article</label>
+             <br>
             <input id="article-url" type="text" name="input" value="" placeholder="Enter Article URL here" />
+            <br>
             <button
               type="submit"
               class="btn-submit"
@@ -25,12 +28,12 @@
 
         <section>
           <strong>Form Results:</strong>
-          <div id="Text"></div>
-          <div id="Agreement"></div>
-          <div id="Subjectivity"></div>
-          <div id="Confidence"></div>
-          <div id="Irony"></div>
-          <div id="Score_tag"></div>
+          <div id="Text" class="serverBack"></div>
+          <div id="Agreement" class="serverBack"></div>
+          <div id="Subjectivity" class="serverBack" ></div>
+          <div id="Confidence" class="serverBack"></div>
+          <div id="Irony" class="serverBack"></div>
+          <div id="Score_tag"class="serverBack"></div>
         </section>
       </div>
     </main>
@@ -44,4 +47,5 @@
       }
     </script>
   </body>
+  <footer> Moamen Mohasseb Udacity © 2006-2021 </footer>
 </html>
